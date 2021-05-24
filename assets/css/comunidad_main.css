@@ -1,0 +1,157 @@
+/* Inserta tu codigo aqui */
+*{
+	/* outline: 1px dotted red; */
+	box-sizing: border-box;
+}
+.navbar{
+	color: #c7b8aa;
+}
+.navbar-brand img{
+	height: 98px;
+}
+.navbar ul{
+	font-weight: bold;
+}
+.navbar ul .marked{
+	list-style: "|";
+}
+.bgCover {
+	margin-top: 124px;
+	background: url("../img/comunidad/semilla.jpg");
+	background-size: cover;
+	background-position: center center;
+	height: 395px;
+}
+.txtUnderImage{
+	height: 179px;
+	background-color: #f2f2f2;
+}
+.row div .misVis{
+	margin: 55px 0 18px 0;
+
+}	
+div h4{
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	font-weight: bold;
+}
+.row .metodo{
+	height: 450px;
+}
+.metodoTxt{
+	background-image: url("../img/comunidad/fondo.jpg");
+	background-size: cover;
+	background-position: center center;
+	color: #ffffff;
+	height: 100%;
+	margin-top: 60px;
+}
+#services{
+	margin-top: 65px;
+}
+#services p{
+	margin: 0 30px;
+}
+
+.services img{
+	margin-top: 44px;
+}
+.services h5{
+	color: #6f713b;
+	margin: 22px 0 35px 0;
+	display: block;
+}
+#proyects{
+	background-color: #5f8039;
+	color: #ffffff;
+}
+#proyects h4{
+	padding: 68px 0 31px 0;	
+}
+#proyects div h5{
+	padding: 0;
+}
+#proyects div p{
+	font-size: 12px;
+}
+
+#proyects div div img:nth-child(1){
+	margin-bottom: 24px;
+}
+#team{
+	background-color:#fffdff;
+	height: 631px;
+}
+.team{
+	color:#687e35;
+	margin-top: 68px;
+}
+#team div img{
+	margin-bottom: 35px;
+}
+#team div h4{
+	margin-bottom: 15px;
+}
+#team div span{
+	font-weight: bold;
+	font-size: 14px;
+}
+#team div p{
+	font-size: 14px;
+}
+#team div p img{
+	height: 35px;
+	margin-right: 15px;
+}
+#blogs{
+	height: 490px;
+	background-image: url("../img/comunidad/fondo2.jpg");
+	background-size: cover;
+	background-position: center center;
+}
+#blogs h4{
+	padding: 43px 0 35px 0;
+}
+
+#blogs .carousel-control-prev-icon{
+	background-image: url("../img/comunidad/iconos/slider/ecomunidad-15.png");
+	height: 46px;
+	width: 45px;
+}
+#blogs .carousel-control-next-icon{
+	background-image: url("../img/comunidad/iconos/slider/ecomunidad-16.png");
+	height: 46px;
+	width: 45px;
+}
+#blogs .carouselItem{
+	height: 350px;
+	font-size: 12px;
+}
+#blogs .carouselItem .post3{
+	color: #72813f;
+}
+#follow{
+	background-color: #4d4d4d;
+	padding: 62px;
+}
+#follow img{
+	width: 41px;
+}
+#follow div .followRRSS{
+	padding-top: 20px;
+}
+#follow div .followRRSS p{
+	color: #ffffff;
+	font-size: 22px;
+	padding-bottom: 50%;
+}
+.footer{
+	background-color: #f2f2f2;
+}
+.footer div div{
+	padding: 66px 0 85px 0;
+	font-size: 14px;
+}
+.footer div div p{
+	padding: 0;
+	margin: 0;
+}

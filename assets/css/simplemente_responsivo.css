@@ -1,0 +1,49 @@
+*{
+	/* outline: 1px dotted red ; */
+	box-sizing: border-box;
+	margin: 10px 5px;
+}
+
+#title{
+	font-size: 22px;
+	background-color: #aaaaaa;
+	font-weight: bold;
+	padding: 10px 5px;
+}
+
+#text{
+	background-color: #c5c5c5;
+	padding: 10px 10px;
+	font-size: 16px;
+}
+
+#info{
+	background-color: #ffff91;
+	padding: 10px 10px;
+	font-size: 12px;
+}
+
+#negrita{
+	font-weight: bold;
+}
+
+#info::before{
+	content: "" ; 
+}
+
+#negrita:before{
+	content: "";
+}
+
+@media only screen and (min-width:1024px) {
+	#info::before { content: "Desktop: Width"; }
+	#negrita::before{  content: "greater than equal to 1024px"; }
+}
+@media only screen and (min-width:481px) and (max-width:1023px){
+	#info::before { content: "Tablet: Width"; }
+	#negrita::before{  content: "between 481 px and 1023 px"; }
+}
+@media only screen and (max-width:480px){
+	#info::before { content: "Phone: Width"; }
+	#negrita::before{  content: "less than or equal to 480 px"; }
+}

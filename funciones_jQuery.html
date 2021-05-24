@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+	<title>Funciones de jQuery</title>
+
+<style type="text/css">	
+	p{
+		display: inline-block;
+		margin: 0 20px 0 20px;
+	}
+	.yellow{
+		background-color: yellow;;
+	}
+	img{
+		vertical-align: top;
+	}
+</style>
+
+<script>
+	$(document).ready(function(){
+		$('#hClick').click(function(){
+			if($("#hClick").text()=="Click"){
+				$("#hClick").text("hello world");
+			}else{
+				$("#hClick").text("Click");
+			}
+		});
+		$("#bHide").click(function(){
+			$("#pHide").hide();
+		});
+		$("#h2Hide").click(function(){
+			$("#pHide").show();
+		});
+		$("#pShow").hide();
+		$("#bShow").click(function(){
+			$("#pShow").show();
+		});
+		$("#h2Show").click(function(){
+			$("#pShow").hide();
+		});
+		$("#bToogle").click(function(){
+			$("#pToggle").toggle();
+		});
+		$("#imgSDown").hide();
+		$("#bSDown").click(function(){
+			$("#imgSDown").slideDown('slow');
+		});
+		$("#h2SDown").click(function(){
+			$("#imgSDown").hide();
+		});
+		$("#bSUp").click(function(){
+			$("#imgSUp").slideUp('slow');
+		});
+		$("#h2SUp").click(function(){
+			$("#imgSUp").show();
+		});
+		$("#bSToggle").click(function(){
+			$("#imgSToggle").slideToggle('slow');
+		});
+		$("#pFIn").hide();
+		$("#bFIn").click(function(){
+			$("#pFIn").fadeIn('slow');
+		});
+		$("#h2FIn").click(function(){
+			$("#pFIn").hide();
+		});
+		$("#bFOut").click(function(){
+			$("#pFOut").fadeOut('slow');
+		});
+		$("#h2FOut").click(function(){
+			$("#pFOut").show();
+		});
+		$("#bAddClass").click(function(){
+			$("#pAddClass").addClass('yellow');
+		});
+		$("#h2AddClass").click(function(){
+			$("#pAddClass").removeClass('yellow');
+		});
+		$("#bBefore").click(function(){
+			$("#pBefore").before('<p id="textBefore"><b>Hellow World</b></p>');
+		});
+		$("#h2Before").click(function(){
+			$("#textBefore").remove();
+		});
+		$("#bAfter").click(function(){
+			$("#pAfter").after('<p id="textAfter"><b>Hellow World</b></p>');
+		});
+		$("#h2After").click(function(){
+			$("#textAfter").remove();
+		});
+		$("#bAppend").click(function(){
+			$("#pAppend").append(' <b>Hellow World</b>');
+		});
+		let tAppend=$("#pAppend").text();
+		$("#h2Append").click(function(){
+			$("#pAppend").text(tAppend);
+		});
+		let tHtml=$("#pHtml").html();
+		$("#bHtml").click(function(){
+			$("#pHtml").html('<b>'+ tHtml +'</b>');
+		});
+		$("#h2Html").click(function(){
+			$("#pHtml").html(tHtml);
+		});
+		$("#bAttr").click(function(){
+			let w=$('#imgAttr').attr('width');
+			$("#spanAttr").text('Width: '+ w);
+		});
+		$("#h2Attr").click(function(){
+			$("#spanAttr").text('Width: ');
+		});
+		$("#bVal").click(function(){
+			$("#inputVal").val('hello world');
+		});
+		$("#h2Val").click(function(){
+			$("#inputVal").val('');
+		});
+		$("#bText").click(function(){
+			$("#tText").text('<b>hello world</b>');
+		});
+		$("#h2Text").click(function(){
+			$("#tText").text('text');
+		});
+	});
+</script>
+<!--
+.text
+-->
+</head>
+<body>
+	<div>
+		<h2 id="hClick">Click</h2>
+		<p>click on the h2 title to change its text to "hello world" or return it to normal</p>
+	</div>
+	<hr>
+	<div>
+		<h2 id="h2Hide">Hide</h2>
+		<button id="bHide" type="button">Hide</button><p id=pHide>click the button to hide this paragraph</p>
+	</div>
+	<hr>
+	<div>
+		<h2 id="h2Show">Show</h2>
+		<button id="bShow" type="button">Show</button><p>click the button to show a hidden paragraph</p>
+		<p id="pShow">This paragraph is no longer hidden</p>
+	</div>
+	<hr>
+	<div>
+		<h2>Toogle</h2>
+		<button id="bToogle" type="button">Toggle</button><p id="pToggle">click the button to show a hidden/show this paragraph</p>
+	</div>
+	<hr>
+	<div>
+		<h2 id="h2SDown">SlideDown</h2>
+		<button id="bSDown" type="button">SlideDown</button><p>click the button to slideDown a hidden second image</p>
+		<img src="img/greymonblue.gif" width="82px"><img id="imgSDown" src="img/greymonblue.gif" width="82px">
+	</div>
+	<hr>
+	<div>
+		<h2 id="h2SUp">SlideUp</h2>
+		<button id="bSUp" type="button">SlideUp</button><p>click the button to slideUp the second image</p>
+		<img src="img/greymonblue.gif" width="82px"><img id="imgSUp" src="img/greymonblue.gif" width="82px">
+	</div>
+	<hr>
+	<div>
+		<h2>SlideToggle</h2>
+		<button id="bSToggle" type="button">SlideToggle</button><p>click the button to slideDown/slideUp a second image</p>
+		<img src="img/greymonblue.gif" width="82px"><img id="imgSToggle"src="img/greymonblue.gif" width="82px">
+	</div>
+	<hr>
+	<div>
+		<h2 id="h2FIn">FadeIn</h2>
+		<button id="bFIn" id="bHide" type="button">FadeIn</button><p>click the button to fadeIn a hidden paragraph</p>
+		<p id="pFIn" class="hide">This paragraph is no longer hidden</p>
+	</div>
+	<hr>
+	<div>
+		<h2 id="h2FOut">FadeOut</h2>
+		<button id="bFOut" id="bHide" type="button">FadeOut</button><p id="pFOut">click the button to fadeOut this paragraph</p>
+	</div>
+	<hr>
+	<div>
+		<h2 id="h2AddClass">AddClass</h2>
+		<button id="bAddClass" id="bHide" type="button">AddClass</button><p id="pAddClass">click the button to add class "yellow" to this paragraph</p>
+	</div>
+	<hr>
+	<div>
+		<h2 id="h2Before">Before</h2>
+		<button id="bBefore" type="button">Before</button><p id="pBefore">click on the button to add a paragraph that says "hellow world" in bold before this paragraph</p>
+	</div>
+	<hr>
+	<div>
+		<h2 id="h2After">After</h2>
+		<button id="bAfter" type="button">After</button><p id="pAfter">click on the button to add a paragraph that says "hellow world" in bold after this paragraph</p>
+	</div>
+	<hr>
+	<div>
+		<h2 id="h2Append">Append</h2>
+		<button id="bAppend" type="button">Append</button><p id="pAppend">click on the button to add "hellow world" in bold at the end of this paragraph</p>
+	</div>
+	<hr>
+	<div>
+		<h2 id="h2Html">Html</h2>
+		<button id="bHtml" type="button">Html</button><p id="pHtml">click the button to add the tag bold to this paragraph</p>
+	</div>
+	<hr>
+	<div>
+		<h2 id="h2Attr">Attr</h2>
+		<button id="bAttr" type="button">Attr</button><p>click the button to view the value of the image width attribute</p>
+		<img id="imgAttr" src="img/greymonblue.gif" width="82px"><span id=spanAttr>Width: </span>
+	</div>
+	<hr>
+	<div>
+		<h2 id="h2Val">Val</h2>
+		<button id="bVal" type="button">Val</button><p>click on the button to set the value of the text box to "hello world"</p>
+		<input id="inputVal" type="text">
+	</div>
+	<hr>
+	<div>
+		<h2 id="h2Text">Text</h2>
+		<button id="bText" type="button">Text</button><p id=pText>click the button to change its <span id="tText">text</span> to "&lt;b&gt;hello world&lt;/b&gt;"</p>
+	</div>
+	<hr>
+</body>
+</html>
+

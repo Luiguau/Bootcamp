@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+	<title>Ejercicio 05</title>
+
+	<!-- Construir un formulario que solicite el ingreso de 4 notas y un examen
+	Validar los rangos de las notas ingresadas (10 a 70)
+	Calcular el promedio de las primeras 4 notas
+	Calcular la nota de presentacion al examen (70%)
+	Calcular la ponderacion del examen (30%)
+	Si el alumno obtiene al menos una nota roja, entonces automaticamente repueba el curso
+	Por lo tanto el alumno aprueba con promedio final >=4 con todas sus notas parciales sobre 4
+	Imprimir los resultados en pantalla (promedios y NF) y el estado del alumno (Aprobado o Reprobado) -->
+
+	<script>
+		let pondP=0;
+		function limpiar(){
+			document.getElementById("calcP").classList.replace("btn-ligth","btn-success");
+			document.getElementById("calcNF").classList.replace("btn-warning","btn-ligth");
+			document.getElementById("calcNF").disabled=true;
+			document.getElementById("calcP").disabled=false;
+			document.getElementById("ne").disabled=true;
+			document.getElementById("n1").disabled=false;
+			document.getElementById("n2").disabled=false;
+			document.getElementById("n3").disabled=false;
+			document.getElementById("n4").disabled=false;
+			document.getElementById("n1").value="";
+			document.getElementById("n2").value="";
+			document.getElementById("n3").value="";
+			document.getElementById("n4").value="";
+			document.getElementById("ne").value="";
+			document.getElementById("prom").innerHTML="Promedio: ";
+			document.getElementById("pondProm").innerHTML="Ponderacion (70%): ";
+			document.getElementById("notaE").innerHTML="Nota Examen: ";
+			document.getElementById("pondNe").innerHTML="Ponderacion (30%): ";
+			document.getElementById("nf").innerHTML="Nota Final: ";
+			document.getElementById("status").innerHTML="";
+			document.getElementById("n1").focus();
+		}
+		function calcP(){
+			let notas=[0,0,0,0], sum=0, cont=0,prom=0;
+			notas[0]=parseFloat(document.getElementById("n1").value);
+			notas[1]=parseFloat(document.getElementById("n2").value);
+			notas[2]=parseFloat(document.getElementById("n3").value);
+			notas[3]=parseFloat(document.getElementById("n4").value);
+			for(let i=0;i<notas.length;i++){
+				if(notas[i]>=1 && notas[i]<=7){
+					if(notas[i]>=4){
+						sum+=notas[i];
+						cont++;
+					}else{
+						document.getElementById("status").className="text-danger";
+						document.getElementById("status").innerHTML="REPROBADO";
+						document.getElementById("calcP").disabled=true;
+						document.getElementById("calcP").classList.replace("btn-success","btn-ligth");
+						break;
+					}
+				}else{
+					alert("Nota "+ (i+1) +" mal ingresada\nFavor ingresar nota como numero decimal entre 1 y 7");
+					document.getElementById("n"+(i+1)).value="";
+					document.getElementById("n"+(i+1)).focus();
+					break;
+				}
+			}
+			if(cont==4){
+				prom=Math.round(sum/4*100)/100;
+				pondP=Math.round((prom*0.7)*100)/100;
+				document.getElementById("prom").innerHTML="Promedio: "+prom;
+				document.getElementById("pondProm").innerHTML="Ponderacion (70%): "+ pondP;
+				document.getElementById("n1").disabled=true;
+				document.getElementById("n2").disabled=true;
+				document.getElementById("n3").disabled=true;
+				document.getElementById("n4").disabled=true;
+				document.getElementById("calcP").disabled=true;
+				document.getElementById("calcP").classList.replace("btn-success","btn-ligth");
+				document.getElementById("calcNF").classList.replace("btn-ligth","btn-warning");
+				document.getElementById("calcNF").disabled=false;
+				document.getElementById("ne").disabled=false;
+				document.getElementById("ne").focus();
+			}
+		}
+		function calcNF(){
+			let nota=0,nF=0,pondE=0;
+			nota=parseFloat(document.getElementById("ne").value);
+			if(nota>=1 && nota<=7){
+				pondE=Math.round((nota*0.3)*100)/100;
+				nF=Math.round((pondP+pondE)*100)/100;
+				document.getElementById("notaE").innerHTML="Nota Examen: "+nota;
+				document.getElementById("pondNe").innerHTML="Ponderacion (30%): "+ pondE;
+				document.getElementById("nf").innerHTML="Nota Final: "+ nF;
+				document.getElementById("calcNF").classList.replace("btn-warning","btn-ligth");
+				document.getElementById("calcNF").disabled=true;
+				document.getElementById("ne").disabled=true;
+				if((pondP+pondE)>=4){
+					document.getElementById("status").className="text-success";
+					document.getElementById("status").innerHTML="APROBADO";
+				}else{
+					document.getElementById("status").className="text-danger";
+					document.getElementById("status").innerHTML="REPROBADO";
+				}
+			}else{
+				alert("Nota Examen mal ingresada\nFavor ingresar nota como numero decimal entre 1 y 7");
+					document.getElementById("ne").value="";
+					document.getElementById("ne").focus();
+			}
+		}	
+	</script>
+</head>
+<body>
+	<div class="container mx-auto col-8">
+		<h2 class="text-center" >Calculo de Promedio</h2>
+		<div class="row text-center">
+			<div class="col-1 mx-auto"><label>Nota 1</label></div>
+			<div class="col-1 mx-auto"><label>Nota 2</label></div>
+			<div class="col-1 mx-auto"><label>Nota 3</label></div>
+			<div class="col-1 mx-auto"><label>Nota 4</label></div>
+			<div class="col-1 mx-auto"><label>Examen</label></div>
+		</div>
+		<div class="row text-center">
+			<div class="col-1 mx-auto"><input id="n1" type=text class="form-control" placeholder="4.0"></input></div>
+			<div class="col-1 mx-auto"><input id="n2" type=text class="form-control" placeholder="4.0"></input></div>
+			<div class="col-1 mx-auto"><input id="n3" type=text class="form-control" placeholder="4.0"></input></div>
+			<div class="col-1 mx-auto"><input id="n4" type=text class="form-control" placeholder="4.0"></input></div>
+			<div class="col-1 mx-auto"><input id="ne" type=text class="form-control" placeholder="4.0"></input></div>
+		</div>
+		<br>
+		<div class="row">
+			<button class="btn btn-success mx-auto" type="button" onclick="calcP()" id="calcP">Calcular nota presentacion</button>
+			<button class="btn btn-ligth mx-auto" type="button" onclick="calcNF()" id="calcNF">Calcular nota final</button>
+			<button class="btn btn-info mx-auto" type="reset" onclick="limpiar()">Limpiar</button>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-6"><label id="prom">Promedio: </label></div><div class="col-6"><label id="pondProm">Ponderacion (70%): </label></div>
+		</div>
+		<div class="row">
+			<div class="col-6"><label id="notaE">Nota Examen: </label></div><div class="col-6"><label id="pondNe">Ponderacion (30%): </label></div>
+		</div>
+		<div class="row">
+			<div class="col-6"><label id="nf">Nota Final: </label></div><div class="col-6"><label id="status"></label></div>
+		</div>
+	</div>
+	<script>limpiar();</script>	
+</body>
+</html>
