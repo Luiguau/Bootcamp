@@ -8,26 +8,33 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 
-	<title>De Ninja a Gato</title>
+	<title>Cursor en/fuera</title>
 
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$("img").click(function(){
-				let temp=$(this).attr('src');
-				$(this).attr('src',$(this).attr('data-alt-src'));
-				$(this).attr('data-alt-src',temp);
+			$("img").hover(function(){
+				$(this).prop('src','assets/img/pkmn1.jpg');
+			}, function(){
+				$(this).prop('src','assets/img/pkmn0.jpg');
 			});
 		});
 	</script>
 </head>
 <body>
 	<div class="container">
-		<h2 class="text-center">Actividad: De Ninja a Gato</h2>
-		<img class="d-block mx-auto m-1" src="assets/img/ninja_gato/ninja0.png" data-alt-src="assets/img/ninja_gato/cat0.png">
-		<img class="d-block mx-auto m-1" src="assets/img/ninja_gato/ninja1.png" data-alt-src="assets/img/ninja_gato/cat1.png">
-		<img class="d-block mx-auto m-1" src="assets/img/ninja_gato/ninja2.png" data-alt-src="assets/img/ninja_gato/cat2.png">
-		<img class="d-block mx-auto m-1" src="assets/img/ninja_gato/ninja3.png" data-alt-src="assets/img/ninja_gato/cat3.png">
-		<img class="d-block mx-auto m-1" src="assets/img/ninja_gato/ninja4.png" data-alt-src="assets/img/ninja_gato/cat4.png">
+		<h2 class="text-center">Actividad: Cursor en/fuera</h2>
+		<div class="row">
+			<img class="col d-block mx-auto m-1" src="assets/img/pkmn0.jpg">
+			<img class="col d-block mx-auto m-1" src="assets/img/pkmn0.jpg">
+			<img class="col d-block mx-auto m-1" src="assets/img/pkmn0.jpg">
+			<img class="col d-block mx-auto m-1" src="assets/img/pkmn0.jpg">
+		</div>
+		<div class="row">
+			<img class="col d-block mx-auto m-1" src="assets/img/pkmn0.jpg">
+			<img class="col d-block mx-auto m-1" src="assets/img/pkmn0.jpg">
+			<img class="col d-block mx-auto m-1" src="assets/img/pkmn0.jpg">
+			<img class="col d-block mx-auto m-1" src="assets/img/pkmn0.jpg">
+		</div>
 	</div>
 </body>
 </html>
