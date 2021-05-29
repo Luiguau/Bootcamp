@@ -1,0 +1,17 @@
+#excluyendo las carpetas de los track (solo se usan de manera local
+_Evaluaciones/
+_prototipo_cliqueable/
+01_HTML/
+02_CSS/
+03_Javascript/
+04_jQuery/
+05_Git/
+06_API and Ajax/
+07_Python Fundamentals/
+08_MySQL/
+09_Django/
+10_Deployment/
+11_Django Extras/
+#excluyendo carpetas locales
+cursor_fuera/
+depurando_jQuery/
